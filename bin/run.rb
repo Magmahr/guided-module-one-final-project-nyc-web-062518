@@ -74,9 +74,18 @@ def pick_an_item
   prompt.select("Please pick one item:", Item.list_of_random_items)
 end
 
+def delete_chosen_item(item)
+  Item.all.find do |i|
+    if item == i.name
+      i.destroy
+    end
+  end
+end
+
 def compare_items
   chosen_item = pick_an_item
-  if chosen_item == Item.all[6].name
+  delete_chosen_item(chosen_item)
+  if chosen_item == Item.all[0].name
     puts "Congrats, you've escaped!"
   else
     puts "That's a nifty #{chosen_item}, but it's probably not going to help you to get out of the house. You should explore another room."
