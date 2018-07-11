@@ -61,5 +61,3 @@ balaclava = Item.create(name: "Balaclava")
 fake_moustache = Item.create(name: "Fake Moustache")
 crystal_vase = Item.create(name: "Crystal Vase")
 handcuffs = Item.create(name: "Handcuffs")
-
-user_example = User.create(name: nil, role: nil)

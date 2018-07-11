@@ -35,8 +35,9 @@ HEREDOC
 end
 
 
-def party_background_info
-  # to add: background about the party, why you're there, why you realize you need to escape
+def the_setup
+  puts "You're driving through a strange town at night when your car breaks down. It's pouring rain, you suspect that you've lost your way and the only house within sight is a vast, sprawling mansion. Every window is lit and you can see a number of people inside, so you decide to go and ask to use a telephone."
+  puts "You're greeted at the door by a stranger."
 end
 
 def create_new_user
@@ -44,6 +45,10 @@ def create_new_user
   user_instance.name = user_instance.get_user_name
   user_instance.role = user_instance.get_user_role
   user_instance.save
+end
+
+def get_asked_in
+  puts "Before you can begin to explain your plight, the stranger at the door thanks you for coming and welcomes you in. You decide to play along, since it's not every day you're invited to a dinner party at an estate as magnificent as this."
 end
 
 def join_the_party
@@ -62,7 +67,7 @@ end
 
 def navigate_into_a_room
   prompt = TTY::Prompt.new
-  prompt.keypress("Press space keys to move between rooms.", keys: [:space])
+  prompt.keypress("Press the space key to move between rooms.", keys: [:space])
 end
 
 def describe_a_room
@@ -102,7 +107,9 @@ end
 
 def play_the_game
   welcome_user
+  the_setup
   create_new_user
+  get_asked_in
   check_if_ready_to_play
   describe_a_room
   compare_items
