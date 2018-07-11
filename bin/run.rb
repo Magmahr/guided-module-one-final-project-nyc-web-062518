@@ -34,7 +34,7 @@ end
 
 def navigate_into_a_room
   prompt = TTY::Prompt.new
-  prompt.keypress("Press arrow keys (↑ → ↓ ←) to move between rooms.", keys: [:keyup, :keyright, :keydown, :keyleft])
+  prompt.keypress("Press space keys to move between rooms.", keys: [:space])
 end
 
 def describe_a_room
@@ -46,29 +46,29 @@ def pick_an_item
   prompt.select("Please pick one item:", Item.list_of_random_items)
 end
 
-def check_if_right_item
+def compare_items
   chosen_item = pick_an_item
-  chosen_item == Item.all[6].name
+  if chosen_item == Item.all[6].name
+    puts "Congrats, you've escaped!"
+  else
+    puts "That's a nifty #{chosen_item}, but it's probably not going to help you to get out of the house. You should explore another room."
+    explore_another_room
+  end
 end
 
-def correct_item_chosen
-  puts "Congrats you've escaped!"
+def explore_another_room
+  navigate_into_a_room
+  describe_a_room
+  compare_items
 end
-
-def wrong_item_chosen
-  puts "That's a nifty #{chosen_item}, but it's probably not going to help you to get out of the house. You should explore another room."
-end
-
 # def delete item from database that you just selected
-
 
 def play_the_game
   welcome_user
   create_new_user
   check_if_ready_to_play
   describe_a_room
-  enter_a_room
-  check_if_right_item
+  compare_items
 end
 
 play_the_game
