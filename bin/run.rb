@@ -1,6 +1,10 @@
 require_relative 'config/environment'
 
-welcome_user #initialize new user and puts out a welcome/intro message
+#initialize new user and puts out a welcome/intro message
+def welcome_user
+  puts "Welcome to the Dinner Party! Please enter your name."
+end
+
 get_user_name #prompt user for name input, gets name from user
 update_user_name # sets @name == user input
 get_user_role #prompt user to select one of X roles, gets role from user and accepts only X inputs

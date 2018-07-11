@@ -12,20 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20180710185046) do
 
-  create_table "characters", force: :cascade do |t|
-    t.string  "name"
-    t.string  "saying"
-    t.integer "room_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.string  "name"
     t.integer "room_id"
+    t.integer "user_id"
   end
 
   create_table "rooms", force: :cascade do |t|
-    t.string  "name"
-    t.integer "user_id"
+    t.string "name"
   end
 
   create_table "users", force: :cascade do |t|
