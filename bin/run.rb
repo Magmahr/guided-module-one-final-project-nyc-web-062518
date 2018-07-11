@@ -4,8 +4,36 @@ require "pry"
 ActiveRecord::Base.logger.level = 1
 
 def welcome_user
-  puts "Welcome to the Dinner Party!"
+  puts "Welcome to...
+  "
+
+  puts <<-HEREDOC
+  ~~~888~~~ 888
+     888    888-~88e  e88~~8e
+     888    888  888 d888  88b
+     888    888  888 8888__888
+     888    888  888 Y888    ,
+     888    888  888  "88___/
+
+
+  888~-_   ,e,
+  888   \\   "  888-~88e 888-~88e  e88~~8e  888-~\\
+  888    | 888 888  888 888  888 d888  88b 888
+  888    | 888 888  888 888  888 8888__888 888
+  888   /  888 888  888 888  888 Y888    , 888
+  888_-~   888 888  888 888  888  "88___/  888
+
+
+  888~-_                      d8
+  888   \\    /~~~8e  888-~\\ _d88__ Y88b  /
+  888    |       88b 888     888    Y888/
+  888   /   e88~-888 888     888     Y8/
+  888_-~   C888  888 888     888      Y
+  888       "88_-888 888     "88_/   /
+                                   _/
+HEREDOC
 end
+
 
 def party_background_info
   # to add: background about the party, why you're there, why you realize you need to escape
