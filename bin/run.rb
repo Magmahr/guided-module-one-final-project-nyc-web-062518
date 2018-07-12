@@ -6,7 +6,7 @@ ActiveRecord::Base.logger.level = 1
 ITEM_ARRAY = []
 
 def line_break
-  " "
+  puts " "
 end
 
 def welcome_user
@@ -50,12 +50,15 @@ sleep(2)
 end
 
 def the_setup
-  puts "You're driving through a strange town at night when your car breaks down. It's pouring rain, you suspect that you've lost your way and the only house within sight is a vast, sprawling mansion."
-  sleep(4)
-  puts "The lights in every window are lit and you can see a number of people inside, so you decide to go and ask to use a telephone."
-  sleep(3)
-  puts "A stranger opens the door and eyes you suspiciously."
-  sleep(2)
+  # puts "You're driving through a strange town at night when your car breaks down. It's pouring rain, you suspect that you've lost your way and the only house within sight is a vast, sprawling mansion."
+  # line_break
+  # sleep(4)
+  # puts "The lights in every window are lit and you can see a number of people inside, so you decide to go and ask to use a telephone."
+  # line_break
+  # sleep(3)
+  # puts "A stranger opens the door and eyes you suspiciously."
+  # line_break
+  # sleep(2)
 end
 
 def create_new_user
@@ -66,28 +69,74 @@ def create_new_user
 end
 
 def get_asked_in
-  puts "The stranger shows little interest as you introduce yourself, and before you can begin to explain your plight, they interrupt you."
-  sleep(2)
-  puts "'Welcome, #{User.last.name}, please, come in. The dinner portion of our evening has just concluded, but the party is now enjoying drinks in the sitting room. You’ll find your hostess inside.'"
-  sleep(1)
-  puts "You ask, 'Is there a telephone I may use?'"
-  sleep(1)
-  puts "'Yes, of course. Come, join us.'"
-  sleep(1)
+  # puts "The stranger shows little interest as you introduce yourself, and before you can begin to explain your plight, they interrupt you."
+  # line_break
+  # sleep(3)
+  # puts "'Welcome, #{User.last.name}, please, come in. The dinner portion of our evening has just concluded, but the guests are now enjoying drinks in the sitting room. You’ll find your hostess inside.'"
+  # line_break
+  # sleep(3)
+  # puts "You ask, 'Is there a telephone I may use?'"
+  # line_break
+  # sleep(1)
+  # puts "'Yes, of course. Come, join us.'"
+  # sleep(1)
 end
 
 def join_the_party
   prompt = TTY::Prompt.new
-  prompt.select("Are you ready to join the party?", %w(Yes! Nope!))
-end
-
-def check_if_ready_to_play
-  response = join_the_party
-  if response == "Yes!"
-    navigate_into_a_room
+  answer = prompt.select("Are you ready to join the party?", ["Yes.", "Do I have a choice?"])
+  if answer == "Yes."
+    story
   else
     join_the_party
   end
+end
+
+def story
+  puts "You're somewhat mystified, since you were clearly not invited, but decide to come in to find the hostess and ask about the telephone. It's not every day you get to see the inside of a mansion."
+  line_break
+  sleep(4)
+  puts "Once inside, the stranger locks the door behind you, which strikes you as odd, but you continue on in. It's been a long day and you're anxious to get on your way."
+  line_break
+  sleep(4)
+  puts "You walk into a large sitting room full of people enjoying a post-dinner digestif or a coffee, and you scan around for the hostess. You have no clue what she looks like, and while you're peering around, the members of the party become aware of your presence."
+  line_break
+  sleep(6)
+  puts "All conversation quickly dies out."
+  line_break
+  sleep(1)
+  puts "You clear your throat, a chill creeping down your spine, and manage to say, 'My... my car broke down, is there a phone I can use?'"
+  line_break
+  sleep(3)
+  puts "All eyes are still locked on you. A man in a top hat holding a martini speaks up. "
+  line_break
+  sleep(2)
+  puts "Perhaps there's a telephone, although I doubt you'll be allowed to make a call. Our hostess is very particular. There are rules, you see."
+  line_break
+  sleep(3)
+  puts "Your mouth is dry, you swallow. 'Rules?'"
+  line_break
+  sleep(1)
+  puts "A young woman adorned in a multitude of pearls chimes in. 'Yes, of course there are rules! This is a murder mystery party, and we're only allowed to leave as soon as we find the murderer. There's no contact with the outside world.'"
+  line_break
+  sleep(5)
+  puts "'So... this is a game?'"
+  line_break
+  sleep(1)
+  puts "'It's a game of sorts,' says a stout older man with a full, white beard. 'I promise you, it's the most thrilling game you'll ever play.'"
+  line_break
+  sleep(3)
+  puts "As you start to formulate a response, the stranger who met you at the door walks in and makes an announcement."
+  line_break
+  sleep(3)
+  puts "It is now 9:00. We ask you to leave the sitting room and to go explore the house by yourself. Our murderer will be roaming the rooms among us, so if you're lucky you'll join us back here in an hour to begin our detective work."
+  line_break
+  sleep(5)
+  puts "The room empties out and you dash back to the door you came in through. It's locked, of course, so you try a window. That too is locked shut. You try another room with no luck."
+  line_break
+  sleep(4)
+  puts "Your only options are to play the game, or break out of here. Let's not gamble with our lives tonight, there must be a way out of here."
+  sleep(3)
 end
 
 def navigate_into_a_room
@@ -157,7 +206,9 @@ def play_the_game
   the_setup
   create_new_user
   get_asked_in
-  check_if_ready_to_play
+  join_the_party
+  story
+  navigate_into_a_room
   describe_a_room
   compare_items
 end
