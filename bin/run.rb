@@ -44,15 +44,15 @@ puts <<-HEREDOC
 HEREDOC
 sleep(2)
 line_break
-puts "A game by Claudia & Matt"
+puts "A text-based experience by Claudia & Matt"
 line_break
-sleep(2)
+sleep(4)
 end
 
 def the_setup
   # puts "You're driving through a strange town at night when your car breaks down. It's pouring rain, you suspect that you've lost your way and the only house within sight is a vast, sprawling mansion."
   # line_break
-  # sleep(4)
+  # sleep(5)
   # puts "The lights in every window are lit and you can see a number of people inside, so you decide to go and ask to use a telephone."
   # line_break
   # sleep(3)
@@ -68,18 +68,30 @@ def create_new_user
   user_instance.save
 end
 
+def friend
+ if User.last.name.length < 2
+   friend_name = "friend"
+ else
+   friend_name = User.last.name
+ end
+ friend_name
+end
+
 def get_asked_in
-  # puts "The stranger shows little interest as you introduce yourself, and before you can begin to explain your plight, they interrupt you."
+  # line_break
+  # sleep(2)
+  # puts "The stranger shows little interest as you introduce yourself. Before you can begin to explain your plight, they interrupt you."
   # line_break
   # sleep(3)
-  # puts "'Welcome, #{User.last.name}, please, come in. The dinner portion of our evening has just concluded, but the guests are now enjoying drinks in the sitting room. You’ll find your hostess inside.'"
+  # puts "'Welcome, #{friend}, please, come in. The dinner portion of our evening has just concluded, but the guests are now enjoying digestifs and coffee in the sitting room. You’ll find your hostess inside.'"
   # line_break
-  # sleep(3)
-  # puts "You ask, 'Is there a telephone I may use?'"
+  # sleep(5)
+  # puts "You falter, and ask, 'Is there a telephone I may use?'"
   # line_break
-  # sleep(1)
-  # puts "'Yes, of course. Come, join us.'"
-  # sleep(1)
+  # sleep(2)
+  # puts "'Yes, of course. Come in from the rain and join us.'"
+  # line_break
+  # sleep(2)
 end
 
 def join_the_party
@@ -93,64 +105,73 @@ def join_the_party
 end
 
 def story
-  puts "You're somewhat mystified, since you were clearly not invited, but decide to come in to find the hostess and ask about the telephone. It's not every day you get to see the inside of a mansion."
-  line_break
-  sleep(4)
-  puts "Once inside, the stranger locks the door behind you, which strikes you as odd, but you continue on in. It's been a long day and you're anxious to get on your way."
-  line_break
-  sleep(4)
-  puts "You walk into a large sitting room full of people enjoying a post-dinner digestif or a coffee, and you scan around for the hostess. You have no clue what she looks like, and while you're peering around, the members of the party become aware of your presence."
-  line_break
-  sleep(6)
-  puts "All conversation quickly dies out."
-  line_break
-  sleep(1)
-  puts "You clear your throat, a chill creeping down your spine, and manage to say, 'My... my car broke down, is there a phone I can use?'"
-  line_break
-  sleep(3)
-  puts "All eyes are still locked on you. A man in a top hat holding a martini speaks up. "
-  line_break
-  sleep(2)
-  puts "Perhaps there's a telephone, although I doubt you'll be allowed to make a call. Our hostess is very particular. There are rules, you see."
-  line_break
-  sleep(3)
-  puts "Your mouth is dry, you swallow. 'Rules?'"
-  line_break
-  sleep(1)
-  puts "A young woman adorned in a multitude of pearls chimes in. 'Yes, of course there are rules! This is a murder mystery party, and we're only allowed to leave as soon as we find the murderer. There's no contact with the outside world.'"
-  line_break
-  sleep(5)
-  puts "'So... this is a game?'"
-  line_break
-  sleep(1)
-  puts "'It's a game of sorts,' says a stout older man with a full, white beard. 'I promise you, it's the most thrilling game you'll ever play.'"
-  line_break
-  sleep(3)
-  puts "As you start to formulate a response, the stranger who met you at the door walks in and makes an announcement."
-  line_break
-  sleep(3)
-  puts "It is now 9:00. We ask you to leave the sitting room and to go explore the house by yourself. Our murderer will be roaming the rooms among us, so if you're lucky you'll join us back here in an hour to begin our detective work."
-  line_break
-  sleep(5)
-  puts "The room empties out and you dash back to the door you came in through. It's locked, of course, so you try a window. That too is locked shut. You try another room with no luck."
-  line_break
-  sleep(4)
-  puts "Your only options are to play the game, or break out of here. Let's not gamble with our lives tonight, there must be a way out of here."
-  sleep(3)
+  # line_break
+  # puts "You're somewhat mystified——you were clearly not invited to this dinner party——but your curiosity leads you to go in. It's not every day you get to see the inside of a mansion."
+  # line_break
+  # sleep(4)
+  # puts "Once inside, you're shown into a large sitting room full of people, and you scan the group for the hostess, whoever she may be. While you're peering around, the members of the party become aware of your presence."
+  # line_break
+  # sleep(6)
+  # puts "All conversation quickly dies out."
+  # line_break
+  # sleep(2)
+  # puts "You clear your throat, a chill creeping down your spine, and manage to say, 'My... my car broke down. Is there a phone I can use?'"
+  # line_break
+  # sleep(4)
+  # puts "All eyes are still locked on you. A man in a top hat brandishing a martini finally speaks up."
+  # line_break
+  # sleep(2)
+  # puts "'Perhaps there's a telephone here, although I doubt you'll be allowed to make a call. Our hostess is very particular. There are rules, you see.'"
+  # line_break
+  # sleep(4)
+  # puts "Your mouth is dry, you swallow. 'Rules?'"
+  # line_break
+  # sleep(2)
+  # puts "A young woman adorned in a multitude of pearls chimes in. 'Well, yes, of course. This is a murder mystery party, after all. We're only allowed to leave as soon as we find the murderer, and naturally there's no contact with the outside world.'"
+  # line_break
+  # sleep(6)
+  # puts "'So... this is a game?'"
+  # line_break
+  # sleep(2)
+  # puts "'It's a game of sorts,' says a stout older man with a full, white beard. 'I promise you, it's the most thrilling game you'll ever play.'"
+  # line_break
+  # sleep(4)
+  # puts "As you start to formulate a response, the stranger who met you at the door walks in and makes an announcement."
+  # line_break
+  # sleep(4)
+  # puts "'It is now 9:00. We ask you to leave the sitting room and to go explore the house. Our murderer will be roaming the rooms among us, so if you're lucky you'll join the rest of us back here in an hour to begin our detective work.'"
+  # line_break
+  # sleep(6)
+  # puts "The room empties out and you dash back to the door you came in through. It's locked, of course, so you try a window. That too is locked tight. In a panic, you try the windows in another room with no luck"
+  # line_break
+  # sleep(6)
+  # puts "By now it's clear that your only options are to play the game, or break out of here."
+  # line_break
+  # sleep(3)
+  # puts "It's not much of a choice. Let's not gamble with our lives tonight. There must be a way to escape!"
+  # line_break
+  # sleep(2)
+  # puts "Best of luck, #{friend}."
+  # line_break
+  # sleep(2)
 end
 
 def navigate_into_a_room
   prompt = TTY::Prompt.new
-  prompt.keypress("Press space keys to move between rooms.", keys: [:space])
+  answer = prompt.select("Select the direction you'd like to take:", ["↑ North", "→ East", "↓ South", "← West"])
+  line_break
+  sleep(1)
 end
 
 def describe_a_room
-  puts "You find yourself in a #{Room.random_room} with the following items:"
+  puts "You find yourself in a #{Room.random_room} with a strange assortment of items."
+  line_break
+  sleep(1)
 end
 
 def pick_an_item
   prompt = TTY::Prompt.new
-  prompt.select("Please pick one item:", Item.list_of_random_items)
+  prompt.select("Please pick only one. Choose wisely:", Item.list_of_random_items)
 end
 
 def delete_chosen_item(item)
@@ -170,16 +191,21 @@ def compare_items
     delete_chosen_item(chosen_item)
   end
   if
-    winning_array == true
-    abort
-  else
-    if chosen_item == "Fountain Pen" || chosen_item == "Stock Pot" || chosen_item == "Feather Boa"
-      puts "Hmm, this might just come in handy..."
-      explore_another_room
-    else
-      puts "That's a nifty #{chosen_item}, but it's probably not going to help you to get out of the house. You should explore another room."
+    winning_array
+  elsif chosen_item == "Fountain Pen" || chosen_item == "Stock Pot" || chosen_item == "Feather Boa"
+    while ITEM_ARRAY.length < 3
+      line_break
+      puts "Hmmm, this might just come in handy..."
+      line_break
+      sleep(1)
       explore_another_room
     end
+    else
+    line_break
+    puts "That's a nifty #{chosen_item}, but it's probably not going to help you to get out of the house. You should explore another room."
+    line_break
+    sleep(1)
+    explore_another_room
   end
 end
 
@@ -188,16 +214,17 @@ def explore_another_room
   describe_a_room
   compare_items
 end
-# def delete item from database that you just selected
 
 def winning_array
   if ITEM_ARRAY.length == 3
-  # chosen_item = pick_an_item
-  #   # binding.pry
-  # if chosen_item == Item.all.sample.name
-    puts "Congrats, you've picked the lock on the window with the fountain pen, jammed it open with the stock pot and scaled down with the boa!
-    You escaped!"
-    true
+    line_break
+    puts "You get to a window without anyone noticing and pick the lock with your founten pen. Then you jam the window open with the stock pot, tie your feather boa to a radiator and use it to climb down and drop safely into a large boxwood shrub."
+    line_break
+    sleep(6)
+    puts "You’re a little scratched up and shaken, but you’ve made it out alive."
+    line_break
+    sleep(3)
+    puts "Congratulations, you’ve successfully escaped The Dinner Party! That was... pretty weird."
   end
 end
 
@@ -207,7 +234,6 @@ def play_the_game
   create_new_user
   get_asked_in
   join_the_party
-  story
   navigate_into_a_room
   describe_a_room
   compare_items
@@ -218,8 +244,6 @@ def clear_db
   Item.destroy_all
   ITEM_ARRAY.clear
 end
-
-
 
 play_the_game
 clear_db
