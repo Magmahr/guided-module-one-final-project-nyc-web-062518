@@ -35,9 +35,8 @@ HEREDOC
 end
 
 
-def the_setup
-  puts "You're driving through a strange town at night when your car breaks down. It's pouring rain, you suspect that you've lost your way and the only house within sight is a vast, sprawling mansion. Every window is lit and you can see a number of people inside, so you decide to go and ask to use a telephone."
-  puts "You're greeted at the door by a stranger."
+def party_background_info
+  # to add: background about the party, why you're there, why you realize you need to escape
 end
 
 def create_new_user
@@ -45,10 +44,6 @@ def create_new_user
   user_instance.name = user_instance.get_user_name
   user_instance.role = user_instance.get_user_role
   user_instance.save
-end
-
-def get_asked_in
-  puts "Before you can begin to explain your plight, the stranger at the door thanks you for coming and welcomes you in. You decide to play along, since it's not every day you're invited to a dinner party at an estate as magnificent as this."
 end
 
 def join_the_party
@@ -67,35 +62,56 @@ end
 
 def navigate_into_a_room
   prompt = TTY::Prompt.new
-  prompt.keypress("Press the space key to move between rooms.", keys: [:space])
+  prompt.keypress("Press space keys to move between rooms.", keys: [:space])
 end
 
 def describe_a_room
   puts "You find yourself in a #{Room.random_room} with the following items:"
 end
 
+ITEM_ARRAY = []
+
 def pick_an_item
   prompt = TTY::Prompt.new
-  prompt.select("Please pick one item:", Item.list_of_random_items)
+  picked_item = prompt.select("Please pick one item:", Item.list_of_random_items)
 end
 
 def delete_chosen_item(item)
   Item.all.find do |i|
+    # binding.pry
     if item == i.name
       i.destroy
     end
   end
 end
 
+def winning_array
+  if ITEM_ARRAY.length == 3
+  # chosen_item = pick_an_item
+  #   # binding.pry
+  # if chosen_item == Item.all.sample.name
+    puts "Congrats, you've picked the lock on the window with the fountain pen, jammed it open with the stock pot and scaled down with the boa!
+    You escaped!"
+  end
+end
+
 def compare_items
   chosen_item = pick_an_item
-  delete_chosen_item(chosen_item)
-  if chosen_item == Item.all[0].name
-    puts "Congrats, you've escaped!"
-  else
-    puts "That's a nifty #{chosen_item}, but it's probably not going to help you to get out of the house. You should explore another room."
-    explore_another_room
+  if chosen_item == "Fountain Pen" || chosen_item == "Stock Pot" || chosen_item == "Feather Boa"
+  ITEM_ARRAY << chosen_item
   end
+  if
+    winning_array
+  else
+    if chosen_item == "Fountain Pen" || chosen_item == "Stock Pot" || chosen_item == "Feather Boa"
+      puts "Hmm, this might just come in handy..."
+      explore_another_room
+    else
+      puts "That's a nifty #{chosen_item}, but it's probably not going to help you to get out of the house. You should explore another room."
+      explore_another_room
+    end
+  end
+  delete_chosen_item(chosen_item)
 end
 
 def explore_another_room
@@ -107,12 +123,19 @@ end
 
 def play_the_game
   welcome_user
-  the_setup
   create_new_user
-  get_asked_in
   check_if_ready_to_play
   describe_a_room
   compare_items
 end
 
+def clear_db
+  Room.destroy_all
+  Item.destroy_all
+  ITEM_ARRAY.clear
+end
+
+
+
 play_the_game
+clear_db

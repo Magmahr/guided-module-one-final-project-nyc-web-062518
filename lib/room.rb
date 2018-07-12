@@ -7,4 +7,5 @@ has_many :users, through: :items
     self.all.shuffle[0].name
   end
 
+
 end
