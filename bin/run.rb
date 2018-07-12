@@ -5,10 +5,14 @@ ActiveRecord::Base.logger.level = 1
 
 ITEM_ARRAY = []
 
-def welcome_user
-  puts "Welcome to...
-  "
+def line_break
+  " "
+end
 
+def welcome_user
+  puts "Welcome to..."
+  line_break
+  sleep(1)
   puts <<-HEREDOC
   ~~~888~~~ 888
      888    888-~88e  e88~~8e
@@ -17,7 +21,9 @@ def welcome_user
      888    888  888 Y888    ,
      888    888  888  "88___/
 
-
+HEREDOC
+sleep(1)
+puts <<-HEREDOC
   888~-_   ,e,
   888   \\   "  888-~88e 888-~88e  e88~~8e  888-~\\
   888    | 888 888  888 888  888 d888  88b 888
@@ -25,7 +31,9 @@ def welcome_user
   888   /  888 888  888 888  888 Y888    , 888
   888_-~   888 888  888 888  888  "88___/  888
 
-
+HEREDOC
+sleep(1)
+puts <<-HEREDOC
   888~-_                      d8
   888   \\    /~~~8e  888-~\\ _d88__ Y88b  /
   888    |       88b 888     888    Y888/
@@ -34,11 +42,20 @@ def welcome_user
   888       "88_-888 888     "88_/   /
                                    _/
 HEREDOC
+sleep(2)
+line_break
+puts "A game by Claudia & Matt"
+line_break
+sleep(2)
 end
 
-
-def party_background_info
-  # to add: background about the party, why you're there, why you realize you need to escape
+def the_setup
+  puts "You're driving through a strange town at night when your car breaks down. It's pouring rain, you suspect that you've lost your way and the only house within sight is a vast, sprawling mansion."
+  sleep(4)
+  puts "The lights in every window are lit and you can see a number of people inside, so you decide to go and ask to use a telephone."
+  sleep(3)
+  puts "A stranger opens the door and eyes you suspiciously."
+  sleep(2)
 end
 
 def create_new_user
@@ -48,8 +65,18 @@ def create_new_user
   user_instance.save
 end
 
+def get_asked_in
+  puts "The stranger shows little interest as you introduce yourself, and before you can begin to explain your plight, they interrupt you."
+  sleep(2)
+  puts "'Welcome, #{User.last.name}, please, come in. The dinner portion of our evening has just concluded, but the party is now enjoying drinks in the sitting room. You’ll find your hostess inside.'"
+  sleep(1)
+  puts "You ask, 'Is there a telephone I may use?'"
+  sleep(1)
+  puts "'Yes, of course. Come, join us.'"
+  sleep(1)
+end
+
 def join_the_party
-  #have option to go back and 1) change UN/role, 2) view background_info again
   prompt = TTY::Prompt.new
   prompt.select("Are you ready to join the party?", %w(Yes! Nope!))
 end
@@ -58,7 +85,8 @@ def check_if_ready_to_play
   response = join_the_party
   if response == "Yes!"
     navigate_into_a_room
-  else join_the_party
+  else
+    join_the_party
   end
 end
 
@@ -78,7 +106,6 @@ end
 
 def delete_chosen_item(item)
   Item.all.find do |i|
-    # binding.pry
     if item == i.name
       i.destroy
     end
@@ -127,7 +154,9 @@ end
 
 def play_the_game
   welcome_user
+  the_setup
   create_new_user
+  get_asked_in
   check_if_ready_to_play
   describe_a_room
   compare_items
