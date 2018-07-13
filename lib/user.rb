@@ -4,7 +4,7 @@ has_many :items
 has_many :rooms, through: :items
 
   def get_user_name
-    puts "If I could please have your name?"
+    puts "If I could please have your name?".colorize(:red)
     input = gets.chomp
     self.name = input
   end

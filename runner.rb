@@ -26,7 +26,7 @@ class Runner
     HEREDOC
     sleep(1)
     puts <<-HEREDOC
-      888~-_   ,e,
+      888~-_   ,o,
       888   \\   "  888-~88e 888-~88e  e88~~8e  888-~\\
       888    | 888 888  888 888  888 d888  88b 888
       888    | 888 888  888 888  888 8888__888 888
@@ -85,22 +85,48 @@ class Runner
     puts "The stranger shows little interest as you introduce yourself. Before you can begin to explain your plight, they interrupt you."
     line_break
     sleep(3)
-    puts "'Welcome, #{friend}, please, come in. The dinner portion of our evening has just concluded, but the guests are now enjoying digestifs and coffee in the sitting room. You’ll find your hostess inside.'"
+    puts "Welcome, #{friend}, please, come in. The dinner portion of our evening has just concluded, but the guests are now enjoying digestifs and coffee in the sitting room. You’ll find your hostess inside.".colorize(:red)
     line_break
     sleep(5)
+    puts <<-HEREDOC
+          __ _
+      .: .' '.
+      /: /     \\_
+      ;: ;  ,-'/`:\\
+      |: | |  |() :|
+      ;: ;  '-.\\_:/
+      \\: \\     /`
+      ':_'._.'
+       ||
+      /__\\
+      .---.     {====}
+      .'   _,"-,__|::  |
+      /    ((O)=;--.::  |
+      ;      `|: |  |::  |
+      |       |: |  |::  |
+      |       |: |  |::  |
+      |       |: |  |::  |
+      |       |: |  |::  |
+      |       |: |  |::  |
+      |      /:'__\\ |::  |
+      |     [______]|::  |
+      |      `----` |::  |__
+      |         _.--|::  |  ''--._
+      ;       .'  __{====}__      '.
+      \\    .'_.-'._ `""` _.'-._    '.
+      '--'/`      `''''`      `\\    '.__
+      jgs  '._                _.'
+      `""--......--""`
+
+    HEREDOC
+    line_break
+    sleep(4)
     puts "You falter, and ask, 'Is there a telephone I may use?'"
     line_break
     sleep(2)
-    puts "'Yes, of course. Come in from the rain and join us.'"
+    puts "Yes, of course. Come in from the rain and join us.".colorize(:red)
     line_break
     sleep(2)
-  end
-
-  def add_char_to_room
-    char = Character.all.sample
-    puts "A #{char.name} is there to greet you; an unwelcome presence who says: #{char.saying}".colorize(:cyan)
-    line_break
-    sleep(1)
   end
 
   def join_the_party
@@ -118,6 +144,45 @@ class Runner
     puts "You're somewhat mystified——you were clearly not invited to this dinner party——but your curiosity leads you to go in. It's not every day you get to see the inside of a mansion."
     line_break
     sleep(4)
+    puts <<-HEREDOC
+
+
+
+             *         .              *            _.---._
+                           ___   .            ___.'       '.   *
+      .              _____[LLL]______________[LLL]_____     \\
+                    /     [LLL]              [LLL]     \\     |
+                   /____________________________________\\    |    .
+                    )==================================(    /
+    .      *         '|I .-. I .-. I .--. I .-. I .-. I|'  .'
+                *    |I |+| I |+| I |. | I |+| I |+| I|-'`       *
+                     |I_|+|_I_|+|_I_|__|_I_|+|_I_|+|_I|      .
+            .       /_I_____I_____I______I_____I_____I_\\
+                     )================================(   *
+     *         _     |I .-. I .-. I .--. I .-. I .-. I|          *
+              |u|  __|I |+| I |+| I |<>| I |+| I |+| I|    _         .
+         __   |u|_|uu|I |+| I |+| I |~ | I |+| I |+| I| _ |U|     _
+     .  |uu|__|u|u|u,|I_|+|_I_|+|_I_|__|_I_|+|_I_|+|_I||n|| |____|u|
+        |uu|uu|_,.-' /I_____I_____I______I_____I_____I\\`'-. |uu u|u|__
+        |uu.-'`      #############(______)#############    `'-. u|u|uu|
+       _.'`              ~"^"~   (________)   ~"^"^~           `'-.|uu|
+    ,''          .'    _                             _ `'-.        `'-.
+    ~"^"~    _,'~"^"~  _( )_                         _( )_   `'-.        ~"^"~
+    _  .'              |___|                         |___|      ~"^"~     _
+    _( )_              |_|_|          () ()          |_|_|              _( )_
+    |___|/\\/\\/\\/\\/\\/\\/\\|___|/\\/\\/\\/\\/\\|| ||/\\/\\/\\/\\/\\|___|/\\/\\/\\/\\/\\/\\/\\|___|
+    |_|_|\\/\\/\\/\\/\\/\\/\\/|_|_|\\/\\/\\/\\/\\/|| ||\\/\\/\\/\\/\\/|_|_|\\/\\/\\/\\/\\/\\/\\/|_|_|
+    |___|/\\/\\/\\/\\/\\/\\/\\|___|/\\/\\/\\/\\/\\|| ||/\\/\\/\\/\\/\\|___|/\\/\\/\\/\\/\\/\\/\\|___|
+    |_|_|\\/\\/\\/\\/\\/\\/\\/|_|_|\\/\\/\\/\\/\\/[===]\\/\\/\\/\\/\\/|_|_|\\/\\/\\/\\/\\/\\/\\/|_|_|
+    |___|/\\/\\/\\/\\/\\/\\/\\|___|/\\/\\/\\/\\/\\|| ||/\\/\\/\\/\\/\\|___|/\\/\\/\\/\\/\\/\\/\\|___|
+    |_|_|\\/\\/\\/\\/\\/\\/\\/|_|_|\\/\\/\\/\\/\\/|| ||\\/\\/\\/\\/\\/|_|_|\\/\\/\\/\\/\\/\\/\\/|_|_|
+    |___|/\\/\\/\\/\\/\\/\\/\\|___|/\\/\\/\\/\\/\\|| ||/\\/\\/\\/\\/\\|___|/\\/\\/\\/\\/\\/\\/\\|___|
+    |_|_|\\/\\/\\/\\/\\/\\/\\/|_|_|\\/\\/\\/\\/\\/|| ||\\/\\/\\/\\/\\/|_|_|\\/\\/\\/\\/\\/\\/\\/|_lc|
+    [_____]           [_____]                       [_____]           [_____]
+
+    HEREDOC
+    line_break
+    sleep(5)
     puts "Once inside, you're shown into a large sitting room full of people, and you scan the group for the hostess, whoever she may be. While you're peering around, the members of the party become aware of your presence."
     line_break
     sleep(6)
@@ -130,28 +195,59 @@ class Runner
     puts "All eyes are still locked on you. A man in a top hat brandishing a martini finally speaks up."
     line_break
     sleep(2)
-    puts "'Perhaps there's a telephone here, although I doubt you'll be allowed to make a call. Our hostess is very particular. There are rules, you see.'"
+    puts "Perhaps there's a telephone here, although I doubt you'll be allowed to make a call. Our hostess is very particular. There are rules, you see.".colorize(:red)
     line_break
     sleep(4)
     puts "Your mouth is dry, you swallow. 'Rules?'"
     line_break
     sleep(2)
-    puts "A young woman adorned in a multitude of pearls chimes in. 'Well, yes, of course. This is a murder mystery party, after all. We're only allowed to leave as soon as we find the murderer, and naturally there's no contact with the outside world.'"
+    puts <<-HEREDOC
+
+    ()   ()      ()    /   ()
+      ()      ()  ()  /  ()
+       ______________/___
+       \\            /   /
+        \\^^^^^^^^^^/^^^/
+         \\     ___/   /
+          \\   (   )  /
+           \\  (___) /
+            \\ /    /
+             \\    /
+              \\  /
+               \\/
+               ||
+               ||
+               ||
+               ||
+               ||
+               /\\
+              /;;\\
+         ==============
+    HEREDOC
     line_break
-    sleep(6)
+    sleep(3)
+    puts "A young woman adorned in a multitude of pearls chimes in."
+    line_break
+    sleep(2)
+    puts "Well, yes, of course. This is a murder mystery party, after all. We're only allowed to leave as soon as we find the murderer, and naturally there's no contact with the outside world.".colorize(:red)
+    line_break
+    sleep(5)
     puts "'So... this is a game?'"
     line_break
     sleep(2)
-    puts "'It's a game of sorts,' says a stout older man with a full, white beard. 'I promise you, it's the most thrilling game you'll ever play.'"
+    puts "It's a game of sorts".colorize(:red)+",  says a stout older man with a full, white beard. "+"I promise you, it's the most thrilling game you'll ever play.".colorize(:red)
     line_break
     sleep(4)
-    puts "As you start to formulate a response, the stranger who met you at the door walks in and makes an announcement."
+    puts "...wait a minute. This is a REAL murder mystery?!"
+    line_break
+    sleep(3)
+    puts "Before you can formulate a response, the stranger who met you at the door walks in and makes an announcement:"
     line_break
     sleep(4)
-    puts "'It is now 9:00. We ask you to leave the sitting room and to go explore the house. Our murderer will be roaming the rooms among us, so if you're lucky you'll join the rest of us back here in an hour to begin our detective work.'"
+    puts "It is now 9:00. We ask you to leave the sitting room and to go explore the house. By yourself, please. Our murderer will be roaming the rooms among us, so if you're lucky, you'll join the rest of us back here in an hour to begin our detective work.".colorize(:red)
     line_break
     sleep(6)
-    puts "The room empties out and you dash back to the door you came in through. It's locked, of course, so you try a window. That too is locked tight. In a panic, you try the windows in another room with no luck"
+    puts "The room empties out and you dash back to the door you came in through. It's locked, of course, so you try a window. That too is locked tight. In a panic, you try the windows in another room with no luck."
     line_break
     sleep(6)
     puts "By now it's clear that your only options are to play the game, or break out of here."
@@ -160,7 +256,26 @@ class Runner
     puts "It's not much of a choice. Let's not gamble with our lives tonight. There must be a way to escape!"
     line_break
     sleep(2)
-    puts "Best of luck, #{friend}."
+    puts <<-HEREDOC
+          (
+       )                               /=>
+      (  +____________________/\\/\\___ / /|
+       .''._____________'._____      / /|/\\
+      : () :              :\\ ----\\|    \\ )
+       '..'______________.'0|----|      \\
+                        0_0/____/        \\
+                            |----    /----\\
+                           || -\\\\ --|      \\
+                           ||   || ||\\      \\
+                            \\\\____// '|      \\
+                                    .'/       |
+                                   .:/        |
+                                   :/_________|
+                                     DeXteR/MJP
+    HEREDOC
+    line_break
+    sleep(3)
+    puts "Best of luck, #{friend}.".colorize(:cyan)
     line_break
     sleep(2)
   end
@@ -168,6 +283,16 @@ class Runner
   def navigate_into_a_room
     prompt = TTY::Prompt.new
     answer = prompt.select("Select the direction you'd like to take:", ["↑ North", "→ East", "↓ South", "← West"])
+    line_break
+    sleep(1)
+  end
+
+  def add_char_to_room
+    char = Character.all.sample
+    puts "A #{char.name} is there to greet you; an unwelcome presence who says:"
+    line_break
+    sleep(1)
+    puts "#{char.saying}".colorize(:red)
     line_break
     sleep(1)
   end
@@ -206,16 +331,16 @@ class Runner
     elsif chosen_item == "Fountain Pen" || chosen_item == "Stock Pot" || chosen_item == "Feather Boa"
       while ITEM_ARRAY.length < 3
         line_break
-        puts "Hmmm, this might just come in handy..."
+        puts "Hmmm, this might just come in handy...".colorize(:cyan)
         line_break
-        sleep(1)
+        sleep(2)
         explore_another_room
       end
       else
       line_break
       puts "That's a nifty #{chosen_item}, but it's probably not going to help you to get out of the house. You should explore another room."
       line_break
-      sleep(1)
+      sleep(2)
       explore_another_room
     end
   end
@@ -229,20 +354,24 @@ class Runner
   def winning_array
     if ITEM_ARRAY.length == 3
       line_break
-      puts "You get to a window without anyone noticing and pick the lock with your "+"fountain pen".colorize(:light_green)+". Then you jam the window open with the "+"stock pot".colorize(:light_green)+", tie your "+"feather boa".colorize(:light_green)+" to a radiator and use it to climb down and drop safely into a large boxwood shrub."
+      puts "Hold on a second..."
+      line_break
+      sleep(2)
+      puts "..."
+      line_break
+      sleep(2)
+      puts "You may just have it!".colorize(:cyan)
+      line_break
+      sleep(2)
+      puts "You get to a window without anyone noticing and are able to pick the lock with your "+"fountain pen".colorize(:light_green)+". Then you jam the window open with the "+"stock pot".colorize(:light_green)+", tie your "+"feather boa".colorize(:light_green)+" to a radiator and use it to climb down and drop safely into a large boxwood shrub."
       line_break
       sleep(5)
       puts "You’re a little scratched up and shaken, but you’ve made it out "+"alive".colorize(:light_green)+"."
       line_break
       sleep(3)
-      puts "Congratulations, you’ve successfully escaped The Dinner Party! That was... pretty weird."
+      puts "Congratulations, #{friend}, you’ve successfully escaped The Dinner Party! That was... pretty weird."
+      line_break
     end
-  end
-
-  def clear_db
-    Room.destroy_all
-    Item.destroy_all
-    ITEM_ARRAY.clear
   end
 
   def play_the_game
@@ -255,4 +384,11 @@ class Runner
     describe_a_room
     compare_items
   end
+
+  def clear_db
+    Room.destroy_all
+    Item.destroy_all
+    ITEM_ARRAY.clear
+  end
+
 end
