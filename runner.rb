@@ -388,6 +388,8 @@ class Runner
   def clear_db
     Room.destroy_all
     Item.destroy_all
+    User.destroy_all
+    Character.destroy_all
     ITEM_ARRAY.clear
   end
 
